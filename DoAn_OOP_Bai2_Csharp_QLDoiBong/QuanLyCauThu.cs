@@ -221,23 +221,35 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         }
         public CauThu CauThuCoTheLucTotNhat()
         {
-            CauThu temp = lDsCauThu[0];
-            foreach (var item in LDsCauThu)
+            if (this.lDsCauThu.Count == 0)
+                return null;
+            else
             {
-                if (item > temp)
-                    temp = item;
-            }
-            return temp;
+                CauThu temp = lDsCauThu[0];
+                foreach (var item in LDsCauThu)
+                {
+                    if (item > temp)
+                        temp = item;
+                }
+                return temp;
+            }    
+            
+           
         }
         public CauThu CauThuCoTheSucKhoeYeuNhat()
         {
-            CauThu temp = lDsCauThu[0];
-            foreach (var item in LDsCauThu)
+            if (this.lDsCauThu.Count == 0)
+                return null;
+            else
             {
-                if (item < temp)
-                    temp = item;
+                CauThu temp = lDsCauThu[0];
+                foreach (var item in LDsCauThu)
+                {
+                    if (item < temp)
+                        temp = item;
+                }
+                return temp;
             }
-            return temp;
         }
 
         public double TongLuongToanCauThu()

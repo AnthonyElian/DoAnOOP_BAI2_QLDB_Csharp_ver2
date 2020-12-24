@@ -113,7 +113,11 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                         }
                     case 3:
                         {
-                            listCauThu.Search().Xuat();
+                            CauThu temp = listCauThu.Search();
+                            if (temp == null)
+                                Console.WriteLine("Khong tim thay cau thu");
+                            else
+                                temp.Xuat();
                             break;
                         }
                     case 4:
@@ -128,12 +132,20 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                         }
                     case 6:
                         {
-                            listCauThu.CauThuCoTheLucTotNhat().Xuat();
-                            break;
+                            CauThu temp=listCauThu.CauThuCoTheLucTotNhat();
+                            if (temp == null)
+                                Console.WriteLine("Khong tim thay cau thu");
+                            else
+                                temp.Xuat();
+                                break;
                         }
                     case 7:
                         {
-                            listCauThu.CauThuCoTheSucKhoeYeuNhat().Xuat();
+                            CauThu temp = listCauThu.CauThuCoTheSucKhoeYeuNhat();
+                            if (temp == null)
+                                Console.WriteLine("Khong tim thay cau thu");
+                            else
+                                temp.Xuat();
                             break;
                         }
                     case 8:
