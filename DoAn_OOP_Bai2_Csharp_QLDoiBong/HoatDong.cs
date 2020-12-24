@@ -16,7 +16,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 CauThu temp = list[i];
                 HoatDong.KhamSucKhoeCauThu(ref temp, BS);
                 list[i] = temp;
-                Console.WriteLine("Suc khoe check la" + list[i].TinhTrangSucKhoe);
             }
                
         }

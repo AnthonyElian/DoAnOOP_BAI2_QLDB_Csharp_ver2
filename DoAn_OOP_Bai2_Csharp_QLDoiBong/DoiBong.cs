@@ -10,10 +10,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
     {
         private string sTenDoiBong;
         private string sTenNhaTaiTro;
-        private List<CaNhan> lDoiBong;
-        private List<BacSi> lBacsi;
-        private List<HLVChienThuat> lHLVChienThuat;
-        private List<HLVTheLuc> lHLVTheLuc;
         private San sanDoiBong;
         private QuanLyCauThu lCauThu;
         private QuanLyNhanVien lNhanvien;
@@ -26,11 +22,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         {
             get { return this.sTenDoiBong; }
             set { this.sTenDoiBong = value; }
-        }
-        public List<CaNhan> listDoiBong
-        {
-            get { return this.lDoiBong; }
-            set { this.lDoiBong = value; }
         }
 
         public San SanDoiBong
@@ -49,23 +40,17 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             get { return this.lNhanvien; }
             set { this.lNhanvien = value; }
         }
-        internal List<BacSi> LBacsi { get => this.lBacsi; set => this.lBacsi = value; }
-        internal List<HLVChienThuat> LHLVChienThuat { get => this.lHLVChienThuat; set => this.lHLVChienThuat = value; }
-        internal List<HLVTheLuc> LHLVTheLuc { get => this.lHLVTheLuc; set => this.lHLVTheLuc = value; }
 
         public DoiBong()
         {
-            this.lDoiBong = new List<CaNhan>();
             this.sanDoiBong = new San();
             this.lCauThu = new QuanLyCauThu();
             this.lNhanvien = new QuanLyNhanVien();
         }
 
-        public DoiBong(string tendoibong, string nhataitro, List<CaNhan> listdoibong, San sandoibong)
+        public DoiBong(string tendoibong, string nhataitro, San sandoibong)
         {
-            this.lDoiBong = listdoibong;
             this.sTenNhaTaiTro = nhataitro;
-            this.lDoiBong = listdoibong;
             this.sanDoiBong = sandoibong;
         }
 
@@ -91,6 +76,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             while (flag == 1)
             {
                 Console.WriteLine("\t\t\t************************MENU************************\t\t\t");
+                Console.WriteLine("\t\t\t***      0. Nhap cau thu                         ***\t\t\t");
                 Console.WriteLine("\t\t\t***      1. Sap xep Cau Thu                      ***\t\t\t");
                 Console.WriteLine("\t\t\t***      2. Loc Cau Thu                          ***\t\t\t");
                 Console.WriteLine("\t\t\t***      3. Tim Kiem Cau Thu                     ***\t\t\t");
@@ -290,7 +276,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     case 1:
                         {
                             HoatDong.KhamSucKhoeToanDoi(this.lCauThu.LDsCauThu, this.lNhanvien.Lbacsi[0]);
-                            Console.WriteLine("Suc khoe check la" + this.lCauThu.LDsCauThu[0].TinhTrangSucKhoe);
                             this.lCauThu.XemtinhTrangSucKhoe();
                             break;
                         }
