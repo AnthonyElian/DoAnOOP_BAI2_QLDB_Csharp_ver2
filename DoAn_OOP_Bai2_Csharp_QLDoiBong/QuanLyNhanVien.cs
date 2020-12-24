@@ -127,6 +127,17 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 foreach (var item in Lbacsi)
                     Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
         }
+        public BacSi chonBacsi()
+        {
+            XuatDsBacSi();
+            if(this.lbacsi.Count != 0)
+            {
+                Console.Write("Ban muon chon bac si so may: ");
+                int key = int.Parse(Console.ReadLine());
+                return this.lbacsi[key];
+            }
+            return null;
+        }
 
         public void XuatDsHLVTL()
         {
