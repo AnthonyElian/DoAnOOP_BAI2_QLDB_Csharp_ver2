@@ -58,7 +58,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.Write("Moi nhap Ho Ten thanh vien: ");
             this.sHoTen = Console.ReadLine();
 
-            Console.Write("Nhap ngay gia nhap dinh dang dd/mm/yyyy: ");
+            Console.Write("Nhap ngay gia nhap dinh dang mm/dd/yyyy: ");
             this.dNgayGiaNhap = DateTime.Parse(Console.ReadLine());
 
             Console.Write("Moi nhap Thoi Gian Hop Dong: ");
