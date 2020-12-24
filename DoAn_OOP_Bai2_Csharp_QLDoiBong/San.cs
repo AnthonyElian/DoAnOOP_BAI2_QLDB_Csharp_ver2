@@ -8,45 +8,28 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 {
     public class San
     {
-        public List<NVBaoVe> lNVBaoVe;
-        public List<NVVeSinh> lNVVeSinh;
-        public int SoLuongKhanGia;
-        public double GiaVe;
+        private string sTenSan;
+        private int iSoLuongKhanGia;
+        private double dGiaVe;
+
+        public string STenSan { get => sTenSan; set => sTenSan = value; }
+        public double GiaVe { get => dGiaVe; set => dGiaVe = value; }
+        public int SoLuongKhanGia { get => iSoLuongKhanGia; set => iSoLuongKhanGia = value; }
 
         public San()
         {
-            this.lNVBaoVe = new List<NVBaoVe>();
-            this.lNVVeSinh = new List<NVVeSinh>();
         }
 
-        public San(List<NVBaoVe> ListBv, List<NVVeSinh> ListVs, int soluong, double giave)
+        public San(int soluong, double giave)
         {
-            this.lNVBaoVe = ListBv;
-            this.lNVVeSinh = ListVs;
             this.SoLuongKhanGia = soluong;
             this.GiaVe = giave;
         }
 
         public virtual void Nhap()
         {
-            Console.Write("Moi nhap so luong Nhan Vien Bao Ve trong San: ");
-            int nvbv = int.Parse(Console.ReadLine());
-            //int temp = 0;
-            for (int i = 0; i < nvbv; i++)
-            {
-                NVBaoVe a = new NVBaoVe();
-                a.Nhap();
-                this.lNVBaoVe.Add(a);
-            }
-
-            Console.Write("Moi nhap so luong Nhan Vien Ve Sinh trong San: ");
-            int nvvs = int.Parse(Console.ReadLine());
-            for (int i = 0; i < nvvs; i++)
-            {
-                NVVeSinh a = new NVVeSinh();
-                a.Nhap();
-                this.lNVVeSinh.Add(a);
-            }
+            Console.Write("Moi nhap Ten San ma Doi Bong so huu: ");
+            this.sTenSan = Console.ReadLine();
 
             Console.Write("Moi nhap Gia ve vao san: ");
             this.GiaVe = double.Parse(Console.ReadLine());
@@ -55,29 +38,18 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             this.SoLuongKhanGia = int.Parse(Console.ReadLine());
         }
 
-        public void Nhap(List<NVBaoVe> ListBv, List<NVVeSinh> ListVs, int Soluong, double giave)
+        public void Nhap(string tensan, int Soluong, double giave)
         {
-            this.lNVBaoVe = ListBv;
-            this.lNVVeSinh = ListVs;
+            this.sTenSan = tensan;
             this.SoLuongKhanGia = Soluong;
             this.GiaVe = giave;
         }
 
         public virtual void Xuat()
         {
-            Console.WriteLine("Gia ve vao san la: " + this.GiaVe);
-            Console.WriteLine("So luong Khan Gia khan dai co the chua duoc la: " + this.SoLuongKhanGia);
-            Console.WriteLine("So luong Nhan Vien Ve Sinh la: " + this.lNVVeSinh.Count);
-            for (int i = 0; i < this.lNVVeSinh.Count; i++)
-            {
-                this.lNVVeSinh[i].Xuat();
-            }
-
-            Console.WriteLine("So luong Nhan Vien Bao Ve la: " + this.lNVBaoVe.Count);
-            for (int i = 0; i < this.lNVBaoVe.Count; i++)
-            {
-                this.lNVBaoVe[i].Xuat();
-            }
+            Console.WriteLine("Ten San Bong la: " + this.sTenSan);
+            Console.WriteLine("San co suc chua: " + this.iSoLuongKhanGia + " Nguoi");
+            Console.WriteLine("Gia ve vao san: " + this.dGiaVe + " VND");
         }
     }
 }

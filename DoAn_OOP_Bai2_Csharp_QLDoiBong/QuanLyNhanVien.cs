@@ -121,42 +121,60 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
         public void XuatDsBacSi()
         {
-            foreach (var item in Lbacsi)
-                Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+            if (Lbacsi.Count == 0)
+                Console.WriteLine("Khong co Bac Si nao!");
+            else
+                foreach (var item in Lbacsi)
+                    Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
         }
 
         public void XuatDsHLVTL()
         {
-            foreach (var item in LHLVTL)
-                Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+            if (LHLVTL.Count == 0)
+                Console.WriteLine("Khong co HLV the luc nao!");
+            else
+                foreach (var item in LHLVTL)
+                    Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
         }
 
         public void XuatDsHLVCT()
         {
-            foreach (var item in LHLVCT)
-                Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+            if (LHLVCT.Count == 0)
+                Console.WriteLine("Khong co HLV chien thuat nao!");
+            else
+                foreach (var item in LHLVCT)
+                    Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
         }
 
         public void XuatDsNVBV()
         {
-            foreach (var item in this.lNVBV)
-            {
-                Console.WriteLine("Ten: " + item.sHoTen + "Chuc vu: "  + item.sNghe);
-            }
+            if (LHLVTL.Count == 0)
+                Console.WriteLine("Khong co nhan vien bao ve nao!");
+            else
+                foreach (var item in this.lNVBV)
+                {
+                    Console.WriteLine("Ten: " + item.sHoTen + "Chuc vu: " + item.sNghe);
+                }
         }
 
         public void XuatDsNVVS()
         {
-            foreach (var item in this.lNVVS)
-            {
-                Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
-            }
+            if (LHLVTL.Count == 0)
+                Console.WriteLine("Khong co nhan vien ve sinh nao!");
+            else
+                foreach (var item in this.lNVVS)
+                {
+                    Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+                }
         }
 
         public void XuatDsNhanVien()
         {
-            foreach (var item in lcaNhans)
-                Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+            if (LHLVTL.Count == 0)
+                Console.WriteLine("Khong co nhan vien nao!");
+            else
+                foreach (var item in lcaNhans)
+                    Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
         }
 
         public CaNhan TimkiemNVtheoTen()
@@ -174,7 +192,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
             List<CaNhan> temp = new List<CaNhan>();
             foreach (var item in lcaNhans)
-                if (item.dLuongCoBan < x)
+                if (item.dLuongCoBan > x)
                     temp.Add(item);
             return temp;
         }
