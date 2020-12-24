@@ -287,22 +287,31 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 {
                     case 1:
                         {
-                            HoatDong.KhamSucKhoeToanDoi(this.lCauThu.LDsCauThu, this.lNhanvien.Lbacsi[0]);
-                            this.lCauThu.XemtinhTrangSucKhoe();
+                            BacSi BsKham = this.lNhanvien.chonBacsi();
+                            if (BsKham != null)
+                            {
+                                HoatDong.KhamSucKhoeToanDoi(this.lCauThu.LDsCauThu, BsKham);
+                                this.lCauThu.XemtinhTrangSucKhoe();
+                            }
                             break;
                         }
                     case 2:
                         {
-                            foreach (var item in this.lCauThu.LDsCauThu)
+                            BacSi BsKham = this.lNhanvien.chonBacsi();
+                            if (BsKham != null)
                             {
-                                Console.WriteLine("Ten: " + item.sHoTen + " So Ao: " + item.SoAo);
+                                foreach (var item in this.lCauThu.LDsCauThu)
+                                {
+                                    Console.WriteLine("Ten: " + item.sHoTen + " So Ao: " + item.SoAo);
+                                }
+                                Console.Write("Muon Kham Suc Khoe Cau Thu thu: ");
+                                int i = int.Parse(Console.ReadLine());
+                                CauThu temp =  this.lCauThu.LDsCauThu[i];
+                            
+                                HoatDong.KhamSucKhoeCauThu(ref temp, BsKham);
+                                this.lCauThu.LDsCauThu[i] = temp;
+                                this.lCauThu.XemtinhTrangSucKhoe();
                             }
-                            Console.Write("Muon Kham Suc Khoe Cau Thu thu: ");
-                            int i = int.Parse(Console.ReadLine());
-                            CauThu temp =  this.lCauThu.LDsCauThu[i];
-                            HoatDong.KhamSucKhoeCauThu(ref temp, this.lNhanvien.Lbacsi[0]);
-                            this.lCauThu.LDsCauThu[i] = temp;
-                            this.lCauThu.XemtinhTrangSucKhoe();
                             break;
                         }
                     case 3:
