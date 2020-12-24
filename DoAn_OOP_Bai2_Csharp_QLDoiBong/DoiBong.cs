@@ -279,12 +279,60 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                             this.lCauThu.XemtinhTrangSucKhoe();
                             break;
                         }
+                    case 2:
+                        {
+                            foreach (var item in this.lCauThu.LDsCauThu)
+                            {
+                                Console.WriteLine("Ten: " + item.sHoTen + " So Ao: " + item.SoAo);
+                            }
+                            Console.Write("Muon Kham Suc Khoe Cau Thu thu: ");
+                            int i = int.Parse(Console.ReadLine());
+                            CauThu temp =  this.lCauThu.LDsCauThu[i];
+                            HoatDong.KhamSucKhoeCauThu(ref temp, this.lNhanvien.Lbacsi[0]);
+                            this.lCauThu.LDsCauThu[i] = temp;
+                            this.lCauThu.XemtinhTrangSucKhoe();
+                            break;
+                        }
+                    case 3:
+                        {
+                            List<CauThu> temp = HoatDong.TuyenChon11CT(this.lCauThu.LDsCauThu);
+                            Console.WriteLine("Doi Hinh da lua chon: ");
+                            foreach (var item in temp)
+                            {
+                                Console.WriteLine("Ten: " + item.sHoTen + " Vi Tri: " + item.ViTriDaChinh);
+                            }
+                            break;
+                        }
+                    case 4:
+                        {
+                            HoatDong.HuanLuyenTLCaDoi(this.lCauThu.LDsCauThu, this.lNhanvien.LHLVTL[0]);
+                            this.lCauThu.XemtinhTrangtheLuc();
+                            break;
+                        }
+                    case 5:
+                        {
+                            foreach (var item in this.lCauThu.LDsCauThu)
+                            {
+                                Console.WriteLine("Ten: " + item.sHoTen + " CMND: " + item.sCMND);
+                            }
+                            Console.Write("Muon Cai Thien The Luc Cau Thu thu: ");
+                            int i = int.Parse(Console.ReadLine());
+                            CauThu temp = this.lCauThu.LDsCauThu[i];
+                            HoatDong.HuanLuyenTL(ref temp, this.lNhanvien.LHLVTL[0]);
+                            this.lCauThu.LDsCauThu[i] = temp;
+                            this.lCauThu.XemtinhTrangtheLuc();
+                            break;
+                        }
                     case 6:
                         {
                             flag = 0;
                             break;
                         }
-                        
+                    default:
+                        {
+                            Console.WriteLine("Nhap sai, moi nhap lai!! ");
+                            break;
+                        }
                 }
             }
         }

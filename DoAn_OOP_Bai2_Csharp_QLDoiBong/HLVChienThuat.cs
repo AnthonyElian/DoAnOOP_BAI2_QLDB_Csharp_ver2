@@ -33,7 +33,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
         public HLVChienThuat() : base() 
         {
-            
+            this.sNghe = "HLVCT";
         }
 
         public HLVChienThuat(string hoten, int thoigianhopdong, double luongcoban, string cmnd, int namsinh, string rank, string quocgia, int kinhnghiem) : base(hoten, thoigianhopdong, luongcoban, cmnd, namsinh) 

@@ -36,7 +36,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             int choose = int.Parse(Console.ReadLine());
             if(list.Count<=11)
             {
-                Console.WriteLine("Doi <=11 nguoi");
+                Console.WriteLine("Doi <=11 nguoi => Khong the chon Doi !!");
                 return list;
             }
             switch (choose)
