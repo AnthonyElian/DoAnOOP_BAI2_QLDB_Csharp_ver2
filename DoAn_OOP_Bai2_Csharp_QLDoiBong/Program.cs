@@ -68,7 +68,8 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t************************MENU************************\t\t\t");
                 Console.WriteLine("\t\t\t***            1. Quan Ly Cau Thu                ***\t\t\t");
                 Console.WriteLine("\t\t\t***            2. Quan Ly Nhan Vien              ***\t\t\t");
-                Console.WriteLine("\t\t\t***            3. Thoat                          ***\t\t\t");
+                Console.WriteLine("\t\t\t***            3. Hoat Dong                          ***\t\t\t");
+                Console.WriteLine("\t\t\t***            4. Thoat                          ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
                 Console.Write("Moi nhap lua chon cua ba => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -85,6 +86,11 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                             break;
                         }
                     case 3:
+                        {
+                            a.MenuHoatDong();
+                            break;
+                        }
+                    case 4:
                         {
                             flag = 0;
                             break;

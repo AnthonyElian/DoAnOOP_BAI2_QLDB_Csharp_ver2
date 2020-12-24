@@ -192,7 +192,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
             List<CaNhan> temp = new List<CaNhan>();
             foreach (var item in lcaNhans)
-                if (item.dLuongCoBan < x)
+                if (item.dLuongCoBan > x)
                     temp.Add(item);
             return temp;
         }

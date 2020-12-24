@@ -214,9 +214,9 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         }
         public void XemtinhTrangSucKhoe()
         {
-            foreach(var item in LDsCauThu)
+            foreach (var item in this.lDsCauThu)
             {
-                Console.WriteLine("Cau thu " + item.sHoTen + " chi so SK la: " + item.TinhTrangTheLuc);
+                Console.WriteLine("Cau thu " + item.sHoTen + " chi so SK la: " + item.TinhTrangSucKhoe);
             }    
         }
         public CauThu CauThuCoTheLucTotNhat()
