@@ -279,7 +279,8 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t***      3. Chon Doi 11 Nguoi                    ***\t\t\t");
                 Console.WriteLine("\t\t\t***      4. Huan Luyen The Luc Ca Doi            ***\t\t\t");
                 Console.WriteLine("\t\t\t***      5. Huan Luyen The Luc Cau Thu           ***\t\t\t");
-                Console.WriteLine("\t\t\t***      6. Thoat                                ***\t\t\t");
+                Console.WriteLine("\t\t\t***      6. Da thu                               ***\t\t\t");
+                Console.WriteLine("\t\t\t***      7. Thoat                                ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
                 Console.Write("Moi nhap lua chon cua ba => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -346,9 +347,26 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                         }
                     case 6:
                         {
+                            if (this.lCauThu.LDsCauThu.Count < 11)
+                            {
+                                Console.WriteLine("Khong du cau thu de tham gia thi dau");
+                                break;
+                            }
+                            if (this.listNhanVien.LHLVCT.Count == 0)
+                            {
+                                Console.WriteLine("Khong co HLV");
+                                break;
+                            }
+                            HLVChienThuat hlv = this.listNhanVien.chonHLVCT();
+                            HoatDong.DaGiaoLuu(this.listCauThu.LDsCauThu, hlv);
+                            break;
+                        }
+                    case 7:
+                        {
                             flag = 0;
                             break;
                         }
+                   
                     default:
                         {
                             Console.WriteLine("Nhap sai, moi nhap lai!! ");

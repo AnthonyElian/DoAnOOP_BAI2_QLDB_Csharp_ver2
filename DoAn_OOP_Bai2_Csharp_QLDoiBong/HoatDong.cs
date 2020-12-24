@@ -81,5 +81,26 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
             CT.TinhTrangTheLuc += HLV.ChiSoNangCaoTL;
         }
+        static public void DaGiaoLuu(List<CauThu> listCT, HLVChienThuat HLV)
+        {
+
+            Console.WriteLine("Chon cau thu tham gia thi dau");
+            List<CauThu> listCT2=HoatDong.TuyenChon11CT(listCT);
+            Console.WriteLine("Chon chien thuat");
+            string chienthuat =HLV.ChonChienThuat();
+            Console.Write("Nhap doi thu: ");
+            string dt = Console.ReadLine();
+            Console.WriteLine("\t\t\t************************************************\t\t\t");
+            Console.WriteLine("Doi nha VS" + dt);
+            Console.WriteLine("Danh sach cau thu tham du!");
+            foreach (var item in listCT2)
+            {
+                Console.WriteLine("Cau thu " + item.sHoTen + " so ao: " + item.SoAo);
+            }
+            Console.Write("Huan luyen vien: "+HLV.sHoTen);
+            Console.Write("Chien thuat: " + chienthuat);
+            Console.WriteLine("\t\t\t************************************************\t\t\t");
+
+        }
     }
 }

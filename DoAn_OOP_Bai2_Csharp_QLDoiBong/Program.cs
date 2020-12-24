@@ -55,6 +55,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                                 else
                                 {
                                     co2 = 0;
+                                    san = null;
                                     Console.WriteLine("Doi bong khong co San!! ");
                                 }
                                 co = 0;
@@ -63,7 +64,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                             {
                                 if (co2 == 1)
                                     san.Xuat();
-                                else
+                                else 
                                     Console.WriteLine("Doi bong khong co San!! ");
                             }
                             break;
