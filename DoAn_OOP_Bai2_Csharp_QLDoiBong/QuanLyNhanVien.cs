@@ -147,7 +147,13 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 foreach (var item in LHLVTL)
                     Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
         }
-
+        public HLVChienThuat chonHLVCT()
+        {
+            XuatDsHLVCT();
+            Console.Write("Ban muon chon bac si so may: ");
+            int key = int.Parse(Console.ReadLine());
+            return this.lHLVCT[key];
+        }
         public void XuatDsHLVCT()
         {
             if (LHLVCT.Count == 0)

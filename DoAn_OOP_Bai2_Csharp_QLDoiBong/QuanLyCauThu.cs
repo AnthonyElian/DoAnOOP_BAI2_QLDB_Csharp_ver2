@@ -183,7 +183,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     {
                         Console.Write("Nhap ten cau thu tim kiem : ");
                         string key = Console.ReadLine();
-                        temp = this.lDsCauThu.Find(x => (x.sHoTen == key));
+                        temp = this.lDsCauThu.Find(x => (x.sHoTen.ToLower() == key.ToLower()));
                         return temp;
                     }
                 case 2:
