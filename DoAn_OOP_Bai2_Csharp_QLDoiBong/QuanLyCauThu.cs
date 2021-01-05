@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 {
-    class QuanLyCauThu : Quanly
+    class QuanLyCauThu : IQuanLy<CauThu>
     {
         private List<CauThu> lDsCauThu;
         public List<CauThu> LDsCauThu { get => lDsCauThu; set => lDsCauThu = value; }
@@ -216,7 +216,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     }
             }          
         }
-
         public void XemtinhTrangtheLuc()
         {
             foreach(var item in LDsCauThu)
