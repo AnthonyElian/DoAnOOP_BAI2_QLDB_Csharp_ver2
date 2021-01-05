@@ -79,7 +79,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t***      8. Tong Luong Cau Thu                   ***\t\t\t");
                 Console.WriteLine("\t\t\t***      9. Thoat                                ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
-                Console.Write("Moi nhap lua chon cua ba => Your choice: ");
+                Console.Write("Moi nhap lua chon cua ban => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
                 switch(choice)
                 {
@@ -179,7 +179,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t***      9. Tong Luong Nhan Vien                 ***\t\t\t");
                 Console.WriteLine("\t\t\t***     10. Thoat                                ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
-                Console.Write("Moi nhap lua chon cua ba => Your choice: ");
+                Console.Write("Moi nhap lua chon cua ban => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
                 {
@@ -274,7 +274,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t***      6. Da thu                               ***\t\t\t");
                 Console.WriteLine("\t\t\t***      7. Thoat                                ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
-                Console.Write("Moi nhap lua chon cua ba => Your choice: ");
+                Console.Write("Moi nhap lua chon cua ban => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
                 {
