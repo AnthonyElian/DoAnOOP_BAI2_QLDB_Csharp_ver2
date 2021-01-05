@@ -53,7 +53,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.WriteLine("\t\t\t***              6. TT the luc                   ***\t\t\t");
             Console.WriteLine("\t\t\t***              7. TT Suc Khoe                  ***\t\t\t");
             Console.WriteLine("\t\t\t****************************************************\t\t\t");
-            Console.Write("Moi nhap lua chon cua ba => Your choice: ");
+            Console.Write("Moi nhap lua chon cua ban => Your choice: ");
             int choice = int.Parse(Console.ReadLine());
             switch(choice)
             {
@@ -115,7 +115,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.WriteLine("\t\t\t***       5. Danh sach cau thu co the da hau ve  ***\t\t\t");
             Console.WriteLine("\t\t\t***       6. Thoat                               ***\t\t\t");
             Console.WriteLine("\t\t\t****************************************************\t\t\t");
-            Console.Write("Moi nhap lua chon cua ba => Your choice: ");
+            Console.Write("Moi nhap lua chon cua ban => Your choice: ");
             int choice = int.Parse(Console.ReadLine());
             switch (choice)
             {
@@ -166,6 +166,11 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             }
             return temp;
         }
+
+        public bool ICompare<MuoiDiem>(CauThu a, string key)
+        {
+            return a.sHoTen.ToLower() == key.ToLower();
+        }
         
         public CauThu Search()
         {
@@ -174,7 +179,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.WriteLine("\t\t\t***            2. So ao                          ***\t\t\t");
             Console.WriteLine("\t\t\t***            3. Thoat                          ***\t\t\t");
             Console.WriteLine("\t\t\t****************************************************\t\t\t");
-            Console.Write("Moi nhap lua chon cua ba => Your choice: ");
+            Console.Write("Moi nhap lua chon cua ban => Your choice: ");
             int choice = int.Parse(Console.ReadLine());
             CauThu temp = null;
             switch (choice)
@@ -183,7 +188,14 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     {
                         Console.Write("Nhap ten cau thu tim kiem : ");
                         string key = Console.ReadLine();
-                        temp = this.lDsCauThu.Find(x => (x.sHoTen.ToLower() == key.ToLower()));
+                        for (int i = 0; i < this.lDsCauThu.Count; i++)
+                        {
+                            if (this.ICompare<bool>(this.lDsCauThu[i],key))
+                            {
+                                temp = this.lDsCauThu[i];
+                                break;
+                            }    
+                        }
                         return temp;
                     }
                 case 2:
