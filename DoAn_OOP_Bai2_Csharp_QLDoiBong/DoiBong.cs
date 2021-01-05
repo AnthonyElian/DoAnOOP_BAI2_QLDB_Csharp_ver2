@@ -23,13 +23,11 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             get { return this.sTenDoiBong; }
             set { this.sTenDoiBong = value; }
         }
-
         public San SanDoiBong
         {
             get { return this.sanDoiBong; }
             set { this.sanDoiBong = value; }
         }
-
         public QuanLyCauThu listCauThu
         {
             get { return this.lCauThu; }
@@ -40,35 +38,29 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             get { return this.lNhanvien; }
             set { this.lNhanvien = value; }
         }
-
         public DoiBong()
         {
             this.sanDoiBong = new San();
             this.lCauThu = new QuanLyCauThu();
             this.lNhanvien = new QuanLyNhanVien();
         }
-
         public DoiBong(string tendoibong, string nhataitro, San sandoibong)
         {
             this.sTenNhaTaiTro = nhataitro;
             this.sanDoiBong = sandoibong;
         }
-
         public void Xuat()
         {
             Console.WriteLine("Ten Doi Bong la: " + this.sTenDoiBong);
             Console.WriteLine("Ten Nha Tai Tro cua Doi Bong la: " + this.sTenNhaTaiTro);
         }
-
         public void Nhap()
         {
             Console.Write("Moi nhap Ten Doi Bong: ");
             this.sTenDoiBong = Console.ReadLine();
             Console.Write("Ten Nha Tai Tro cua Doi Bong: ");
             this.sTenNhaTaiTro = Console.ReadLine();
-
         }
-
         public void MenuQLCT()
         {
            
@@ -198,8 +190,8 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                         }
                     case 1:
                         {
-                            listNhanVien.SapxepTheoLuong();
-                            listNhanVien.XuatDsNhanVien();
+                            listNhanVien.Sort();
+                            listNhanVien.Xuat();
                             break;
                         }
                     case 2:

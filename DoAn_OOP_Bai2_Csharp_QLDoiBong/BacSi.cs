@@ -80,7 +80,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         public override void Xuat()
         {
             base.Xuat();
-            //Console.WriteLine("Tuoi cua Bac Si la: " + this.TinhTuoi());
             Console.WriteLine("Bang cua Bac Si hang: " + this.sRank);
             Console.WriteLine("Truong dao tao cua Bac Si la: " + this.sTruongDaoTao);
             Console.WriteLine("Luong cua Bac Si la: " + this.TinhLuong() + " VND");
@@ -94,5 +93,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         {
             return a.TinhLuong() + num;
         }
+        
     }
 }

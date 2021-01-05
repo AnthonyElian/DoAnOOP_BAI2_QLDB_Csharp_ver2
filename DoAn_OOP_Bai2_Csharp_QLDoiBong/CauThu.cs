@@ -55,7 +55,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             this.sChanThuan = chanthuan;
             this.sViTriDaChinh = vitridachinh;
         }
-
         public CauThu(string hoten, double luongcoban, string cmnd, int soao) : base(hoten, luongcoban, cmnd)
         {
             this.iSoAo = soao;
