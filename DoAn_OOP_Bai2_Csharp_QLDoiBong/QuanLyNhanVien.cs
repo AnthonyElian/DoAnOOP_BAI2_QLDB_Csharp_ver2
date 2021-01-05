@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 {
-     class QuanLyNhanVien : Quanly
+     class QuanLyNhanVien : IQuanLy<CaNhan>
     {
         private List<CaNhan> lcaNhans;
         private List<BacSi> lbacsi;
@@ -194,14 +194,44 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
         }
 
-        public CaNhan TimkiemNVtheoTen()
+        public CaNhan Search()
         { 
             Console.Write("Nhap ten Nhan Vien muon tim kiem : ");
             string key = Console.ReadLine();
             CaNhan temp = this.lcaNhans.Find(x => x.sHoTen == key);
             return temp;
         }
-
+        public List<CaNhan> Loc()
+        {
+            Console.WriteLine("\t\t\t************************MENU************************\t\t\t");
+            Console.WriteLine("\t\t\t***            1. Loc theo Luong > x             ***\t\t\t");
+            Console.WriteLine("\t\t\t***            2. Loc theo Luong < x             ***\t\t\t");
+            Console.WriteLine("\t\t\t***            3. Thoat                          ***\t\t\t");
+            Console.WriteLine("\t\t\t****************************************************\t\t\t");
+            Console.Write("Moi nhap lua chon cua ban => Your choice: ");
+            int choice = int.Parse(Console.ReadLine());
+            CauThu temp = null;
+            switch (choice)
+            {
+                case 1:
+                    {
+                        return LocTheoLuongLon();
+                    }
+                case 2:
+                    {
+                        return LocTheoLuongBe();
+                    }
+                case 3:
+                    {
+                        return null;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Nhap sai, moi nhap lai!! ");
+                        return null;
+                    }
+            }
+        }
         public List<CaNhan> LocTheoLuongLon()
         {
             Console.Write("Nhap Luong (x) de co danh sach cau thu luong > x: ");

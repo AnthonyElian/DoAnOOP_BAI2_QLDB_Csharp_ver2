@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 {
-    interface Quanly
+   public interface IQuanLy<T>
     {
         void Nhap();
         void Sort();
         void Xuat();
+        T Search();
+        List<T> Loc();
     }
 }
