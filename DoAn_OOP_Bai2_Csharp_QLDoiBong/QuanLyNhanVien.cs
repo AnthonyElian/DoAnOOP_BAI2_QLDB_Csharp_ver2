@@ -147,12 +147,29 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 foreach (var item in LHLVTL)
                     Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
         }
+
+        public HLVTheLuc chonhLVTheLuc()
+        {
+            this.XuatDsHLVTL();
+            if (this.lHLVTL.Count != 0)
+            {
+                Console.Write("Ban muon chon hlv the luc so may: ");
+                int key = int.Parse(Console.ReadLine());
+                return this.lHLVTL[key];
+            }
+            return null;
+        }
+
         public HLVChienThuat chonHLVCT()
         {
             XuatDsHLVCT();
-            Console.Write("Ban muon chon bac si so may: ");
-            int key = int.Parse(Console.ReadLine());
-            return this.lHLVCT[key];
+            if (this.lHLVCT.Count !=0)
+            {
+                Console.Write("Ban muon chon hlv chien thuat so may: ");
+                int key = int.Parse(Console.ReadLine());
+                return this.lHLVCT[key];
+            }
+            return null;
         }
         public void XuatDsHLVCT()
         {
@@ -165,7 +182,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
         public void XuatDsNVBV()
         {
-            if (LHLVTL.Count == 0)
+            if (this.LNVBV.Count == 0)
                 Console.WriteLine("Khong co nhan vien bao ve nao!");
             else
                 foreach (var item in this.lNVBV)
@@ -176,7 +193,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
         public void XuatDsNVVS()
         {
-            if (LHLVTL.Count == 0)
+            if (this.lNVVS.Count == 0)
                 Console.WriteLine("Khong co nhan vien ve sinh nao!");
             else
                 foreach (var item in this.lNVVS)
@@ -187,10 +204,10 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
         public void Xuat()
         {
-            if (LHLVTL.Count == 0)
+            if (this.lcaNhans.Count == 0)
                 Console.WriteLine("Khong co nhan vien nao!");
             else
-                foreach (var item in lcaNhans)
+                foreach (var item in this.lcaNhans)
                     Console.WriteLine("Ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
         }
 
@@ -210,7 +227,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.WriteLine("\t\t\t****************************************************\t\t\t");
             Console.Write("Moi nhap lua chon cua ban => Your choice: ");
             int choice = int.Parse(Console.ReadLine());
-            CauThu temp = null;
+            List<CaNhan> temp = new List<CaNhan>();
             switch (choice)
             {
                 case 1:
@@ -223,12 +240,12 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     }
                 case 3:
                     {
-                        return null;
+                        return temp;
                     }
                 default:
                     {
                         Console.WriteLine("Nhap sai, moi nhap lai!! ");
-                        return null;
+                        return temp;
                     }
             }
         }

@@ -160,24 +160,23 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         }
 
         public void MenuQLNV()
-        {
-            
-            
+        {          
             int flag = 1;
             while (flag == 1)
             {
                 Console.WriteLine("\t\t\t************************MENU************************\t\t\t");
                 Console.WriteLine("\t\t\t***      0. Nhap NV                              ***\t\t\t");
                 Console.WriteLine("\t\t\t***      1. Sap xep Nhan Vien theo Luong         ***\t\t\t");
-                Console.WriteLine("\t\t\t***      2. Loc Nhan Vien theo Luong lon         ***\t\t\t");
-                Console.WriteLine("\t\t\t***      3. Loc Nhan Vien theo Luong be          ***\t\t\t");
-                Console.WriteLine("\t\t\t***      4. Xem Danh Sach Bac Si                 ***\t\t\t");
-                Console.WriteLine("\t\t\t***      5. Xem Danh Sach HLV Chien Thuat        ***\t\t\t");
-                Console.WriteLine("\t\t\t***      6. Xem Danh Sach HLV The Luc            ***\t\t\t");
-                Console.WriteLine("\t\t\t***      7. Xem Danh Sach Nhan Vien Bao Ve       ***\t\t\t");
-                Console.WriteLine("\t\t\t***      8. Xem Danh Sach Nhan Vien Ve Sinh      ***\t\t\t");
-                Console.WriteLine("\t\t\t***      9. Tong Luong Nhan Vien                 ***\t\t\t");
-                Console.WriteLine("\t\t\t***     10. Thoat                                ***\t\t\t");
+                Console.WriteLine("\t\t\t***      2. Loc Nhan Vien                        ***\t\t\t");
+                Console.WriteLine("\t\t\t***      3. Xem Danh Sach Bac Si                 ***\t\t\t");
+                Console.WriteLine("\t\t\t***      4. Xem Danh Sach HLV Chien Thuat        ***\t\t\t");
+                Console.WriteLine("\t\t\t***      5. Xem Danh Sach HLV The Luc            ***\t\t\t");
+                Console.WriteLine("\t\t\t***      6. Xem Danh Sach Nhan Vien Bao Ve       ***\t\t\t");
+                Console.WriteLine("\t\t\t***      7. Xem Danh Sach Nhan Vien Ve Sinh      ***\t\t\t");
+                Console.WriteLine("\t\t\t***      8. Tong Luong Nhan Vien                 ***\t\t\t");
+                Console.WriteLine("\t\t\t***      9. Tim kiem nhan vien theo ten          ***\t\t\t");
+                Console.WriteLine("\t\t\t***     10. Xem Ca Nhan                          ***\t\t\t");
+                Console.WriteLine("\t\t\t***     11. Thoat                                ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
                 Console.Write("Moi nhap lua chon cua ban => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -196,57 +195,68 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                         }
                     case 2:
                         {
-                            List<CaNhan> temp = listNhanVien.LocTheoLuongLon();
-                            Console.WriteLine("Danh sach Nhan Vien co Luong lon hon x da nhap: ");
-                            foreach (var item in temp)
+                            List<CaNhan> temp = listNhanVien.Loc();
+                            if (temp.Count == 0)
                             {
-                                item.Xuat();
-                                Console.WriteLine();
+                                Console.WriteLine("Khong co nhan vien thoa dieu kien loc!!");
                             }
+                            else
+                            {
+                                foreach (var item in temp)
+                                {
+                                    item.Xuat();
+                                    Console.WriteLine();
+                                }
+                            }                            
                             break;
                         }
                     case 3:
                         {
-                            List<CaNhan> temp = listNhanVien.LocTheoLuongBe();
-                            Console.WriteLine("Danh sach Nhan Vien co Luong be hon x da nhap: ");
-                            foreach (var item in temp)
-                            {
-                                item.Xuat();
-                                Console.WriteLine();
-                            }
+                            listNhanVien.XuatDsBacSi();
                             break;
                         }
                     case 4:
                         {
-                            listNhanVien.XuatDsBacSi();
+                            listNhanVien.XuatDsHLVCT();
                             break;
                         }
                     case 5:
                         {
-                            listNhanVien.XuatDsHLVCT();
+                            listNhanVien.XuatDsHLVTL();
                             break;
                         }
                     case 6:
                         {
-                            listNhanVien.XuatDsHLVTL();
+                            listNhanVien.XuatDsNVBV();
                             break;
                         }
                     case 7:
                         {
-                            listNhanVien.XuatDsNVBV();
+                            listNhanVien.XuatDsNVVS();
                             break;
                         }
                     case 8:
                         {
-                            listNhanVien.XuatDsNVVS();
+                            Console.WriteLine("Tong luong toan nhan vien la: " + listNhanVien.TinhLuongToanBoNV());
                             break;
                         }
                     case 9:
                         {
-                            Console.WriteLine("Tong luong toan nhan vien la: " + listNhanVien.TinhLuongToanBoNV());
+                            CaNhan temp = this.listNhanVien.Search();
+                            if (temp == null)
+                            {
+                                Console.WriteLine("Khong ton tai nhan vien nay!!");
+                            }
+                            else
+                            { temp.Xuat(); }
                             break;
                         }
                     case 10:
+                        {
+                            this.listNhanVien.XemcaNhan();
+                            break;
+                        }
+                    case 11:
                         {
                             flag = 0;
                             break;
@@ -310,31 +320,43 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     case 3:
                         {
                             List<CauThu> temp = HoatDong.TuyenChon11CT(this.lCauThu.LDsCauThu);
-                            Console.WriteLine("Doi Hinh da lua chon: ");
-                            foreach (var item in temp)
-                            {
-                                Console.WriteLine("Ten: " + item.sHoTen + " Vi Tri: " + item.ViTriDaChinh);
+                            if (temp.Count != 0) 
+                            { 
+                                Console.WriteLine("Doi Hinh da lua chon: ");
+                                foreach (var item in temp)
+                                {
+                                    Console.WriteLine("Ten: " + item.sHoTen + " Vi Tri: " + item.ViTriDaChinh);
+                                }
                             }
                             break;
                         }
                     case 4:
                         {
-                            HoatDong.HuanLuyenTLCaDoi(this.lCauThu.LDsCauThu, this.lNhanvien.LHLVTL[0]);
-                            this.lCauThu.XemtinhTrangtheLuc();
+                            HLVTheLuc HLV = this.listNhanVien.chonhLVTheLuc();
+                            if (HLV != null)
+                            {
+                                HoatDong.HuanLuyenTLCaDoi(this.lCauThu.LDsCauThu, this.lNhanvien.LHLVTL[0]);
+                                this.lCauThu.XemtinhTrangtheLuc();
+                            }
                             break;
                         }
                     case 5:
                         {
-                            foreach (var item in this.lCauThu.LDsCauThu)
+                            HLVTheLuc HLV = this.listNhanVien.chonhLVTheLuc();
+                            if (HLV != null)
                             {
-                                Console.WriteLine("Ten: " + item.sHoTen + " CMND: " + item.sCMND);
+                                foreach (var item in this.lCauThu.LDsCauThu)
+                                {
+                                    Console.WriteLine("Ten: " + item.sHoTen + " CMND: " + item.sCMND);
+                                }
+                                Console.Write("Muon Cai Thien The Luc Cau Thu thu: ");
+                                int i = int.Parse(Console.ReadLine());
+                                CauThu temp = this.lCauThu.LDsCauThu[i];
+                                HoatDong.HuanLuyenTL(ref temp, this.lNhanvien.LHLVTL[0]);
+                                this.lCauThu.LDsCauThu[i] = temp;
+                                this.lCauThu.XemtinhTrangtheLuc();
+
                             }
-                            Console.Write("Muon Cai Thien The Luc Cau Thu thu: ");
-                            int i = int.Parse(Console.ReadLine());
-                            CauThu temp = this.lCauThu.LDsCauThu[i];
-                            HoatDong.HuanLuyenTL(ref temp, this.lNhanvien.LHLVTL[0]);
-                            this.lCauThu.LDsCauThu[i] = temp;
-                            this.lCauThu.XemtinhTrangtheLuc();
                             break;
                         }
                     case 6:

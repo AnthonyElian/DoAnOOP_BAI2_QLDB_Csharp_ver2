@@ -69,11 +69,11 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     }
             }
         }
-        static public void HuanLuyenTLCaDoi( List<CauThu> list, HLVTheLuc HLV)
+        static public void HuanLuyenTLCaDoi(List<CauThu> list, HLVTheLuc HLV)
         {
             for(int i=0;i<list.Count;i++)
             {
-                list[i].TinhTrangTheLuc += HLV.ChiSoNangCaoTL; 
+                list[i].TinhTrangTheLuc = list[i].TinhTrangTheLuc + HLV.ChiSoNangCaoTL;
             }
         }
         static public void HuanLuyenTL(ref CauThu CT, HLVTheLuc HLV)

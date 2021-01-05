@@ -71,11 +71,8 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                         }
                     case 4:
                         {
-                            if (co3 == 1 && co4 == 1)
-                                a.MenuHoatDong();
-                            else
-                                Console.WriteLine("Yeu cau phai nhap 1 va 2 truoc moi co the su dung Tinh Nang nay !!");
-                            break;
+                            a.MenuHoatDong();
+                            break; 
                         }
                     case 5:
                         {
