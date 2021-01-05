@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 {
-     class QuanLyNhanVien
+     class QuanLyNhanVien : Quanly
     {
         private List<CaNhan> lcaNhans;
         private List<BacSi> lbacsi;
@@ -114,7 +114,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             }
         }
 
-        public void SapxepTheoLuong()
+        public void Sort()
         {
             this.lcaNhans.Sort((x, y) => x.dLuongCoBan.CompareTo(y.dLuongCoBan));
         }
@@ -185,7 +185,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 }
         }
 
-        public void XuatDsNhanVien()
+        public void Xuat()
         {
             if (LHLVTL.Count == 0)
                 Console.WriteLine("Khong co nhan vien nao!");
@@ -228,7 +228,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
         public void XemcaNhan()
         {
-            this.XuatDsNhanVien();
+            this.Xuat();
             Console.Write("Ban Muon Xem Nhan Vien thu may: !");
             int x = int.Parse(Console.ReadLine());
             if(this.lcaNhans[x].sNghe == "bacsi")

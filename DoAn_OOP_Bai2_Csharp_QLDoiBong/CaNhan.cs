@@ -64,7 +64,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.Write("Moi nhap Thoi Gian Hop Dong: ");
             this.iThoiGianHopDong = int.Parse(Console.ReadLine());
 
-            
             Console.Write("Moi nhap Luong Co Ban cua thanh vien: ");
             this.dLuongCoBan = double.Parse(Console.ReadLine());
 
@@ -74,8 +73,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.Write("Moi nhap Nam Sinh cua thanh vien: ");
             this.iNamSinh = int.Parse(Console.ReadLine());
         }
-
-
         public virtual void Xuat()
         {
             Console.WriteLine("Ho Ten thanh vien la: " + this.sHoTen);
