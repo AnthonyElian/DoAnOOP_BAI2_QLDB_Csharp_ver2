@@ -64,6 +64,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             base.Xuat();
             Console.WriteLine("Ca lam cua Nhan Vien Ve Sinh la: " + this.iShift);
             Console.WriteLine("Luong thuong them cua Nhan Vien Ve Sinh la: " + this.dThuong + " VND");
+            Console.WriteLine("Luong cua Nhan Vien Ve Sinh la: " + this.TinhLuong() + " VND");
         }
 
         public static double operator +(NVVeSinh a, double num)
