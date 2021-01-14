@@ -156,7 +156,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                                                 temp1.iThoiGianHopDong = temp;
                                                 temp1.dNgayGiaNhap = DateTime.Now;
                                             }
-                                            else if (this.expired[x].sNghe == "NVBao")
+                                            else if (this.expired[x].sNghe == "NVBaoVe")
                                             {
                                                 NVBaoVe temp1 = this.lNhanvien.LNVBV.Find(a => a.sHoTen == this.expired[x].sHoTen);
                                                 temp1.iThoiGianHopDong = temp;
