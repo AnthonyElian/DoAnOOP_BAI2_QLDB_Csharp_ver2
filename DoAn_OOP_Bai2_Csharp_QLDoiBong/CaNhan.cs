@@ -191,7 +191,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
         public int TinhTuoi()
         {
-            return 2020 - this.iNamSinh;
+            return 2021 - this.iNamSinh;
         }
         public int ThoiGianHopDongConLai()
         {

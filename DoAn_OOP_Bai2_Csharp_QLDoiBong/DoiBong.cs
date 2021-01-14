@@ -13,6 +13,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         private San sanDoiBong;
         private QuanLyCauThu lCauThu;
         private QuanLyNhanVien lNhanvien;
+        public List<CaNhan> expired;
         public string NhaTaiTro
         {
             get { return this.sTenNhaTaiTro; }
@@ -43,6 +44,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             this.sanDoiBong = new San();
             this.lCauThu = new QuanLyCauThu();
             this.lNhanvien = new QuanLyNhanVien();
+            this.expired = new List<CaNhan>();
         }
         public DoiBong(string tendoibong, string nhataitro, San sandoibong)
         {
@@ -61,6 +63,153 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.Write("Ten Nha Tai Tro cua Doi Bong: ");
             this.sTenNhaTaiTro = Console.ReadLine();
         }
+
+        public void DanhSachHetHanHopDong()
+        {
+            for (int i = 0; i < this.listCauThu.LDsCauThu.Count; i++)
+            {
+                if (this.listCauThu.LDsCauThu[i].ThoiGianHopDongConLai() <= 0)
+                {
+                    this.expired.Add(this.lCauThu.LDsCauThu[i]);
+                }
+            }
+            for (int i = 0; i < this.listNhanVien.LcaNhans.Count; i++)
+            {
+                if (this.listNhanVien.LcaNhans[i].ThoiGianHopDongConLai() <= 0)
+                {
+                    this.expired.Add(this.lNhanvien.LcaNhans[i]);
+                }
+            }
+        }
+
+        public void ThaoTacHopDong()
+        {
+            this.DanhSachHetHanHopDong();
+            if (this.expired.Count <= 0)
+            {
+                Console.WriteLine("Khong co nhan vien nao het han hop dong !!");
+            }
+            else
+            {
+                int flag = 1;
+                while (flag == 1)
+                {
+                    int dem = 0;
+                    Console.WriteLine("Danh sach het han hop dong la: ");
+                    foreach (var item in expired)
+                    {
+                        Console.WriteLine("STT: " + dem++ + "Ho ten: " + item.sHoTen + " Luong: " + item.TinhLuong());
+                    }
+                    Console.Write("1_Gia Han || 2_Kick => Your choice: ");
+                    int n = int.Parse(Console.ReadLine());
+                    switch(n)
+                    {
+                        case 1:
+                            {
+                                Console.Write("Ban muon gia han nhan vien thu may: ");
+                                int x = int.Parse(Console.ReadLine());
+                                if (this.expired[x].sNghe == "CauThu")
+                                {
+                                    for (int i = 0; i < this.lCauThu.LDsCauThu.Count; i++)
+                                    {
+                                        if (this.lCauThu.LDsCauThu[i].sHoTen == this.expired[x].sHoTen)
+                                        {
+                                            Console.Write("Gia han hop dong bao nhieu nam?: ");
+                                            this.lCauThu.LDsCauThu[i].iThoiGianHopDong = int.Parse(Console.ReadLine());
+                                            this.lCauThu.LDsCauThu[i].dNgayGiaNhap = DateTime.Now;
+                                            this.expired.RemoveAt(x);
+                                            break;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    for (int i = 0; i < this.lNhanvien.LcaNhans.Count; i++)
+                                    {
+                                        if (this.lNhanvien.LcaNhans[i].sHoTen == this.expired[x].sHoTen)
+                                        {
+                                            Console.Write("Gia han hop dong bao nhieu nam?: ");
+                                            int temp = int.Parse(Console.ReadLine());
+                                            this.lNhanvien.LcaNhans[i].iThoiGianHopDong = temp;
+                                            this.lNhanvien.LcaNhans[i].dNgayGiaNhap = DateTime.Now;
+                                            if (this.expired[x].sNghe == "bacsi")
+                                            {
+                                                BacSi temp1 = this.lNhanvien.Lbacsi.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                temp1.iThoiGianHopDong = temp;
+                                                temp1.dNgayGiaNhap = DateTime.Now;
+                                            }
+                                            else if (this.expired[x].sNghe == "HLVCT")
+                                            {
+                                                HLVChienThuat temp1 = this.lNhanvien.LHLVCT.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                temp1.iThoiGianHopDong = temp;
+                                                temp1.dNgayGiaNhap = DateTime.Now;
+                                            }
+                                            else if (this.expired[x].sNghe == "HLVTL")
+                                            {
+                                                HLVTheLuc temp1 = this.lNhanvien.LHLVTL.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                temp1.iThoiGianHopDong = temp;
+                                                temp1.dNgayGiaNhap = DateTime.Now;
+                                            }
+                                            else if (this.expired[x].sNghe == "NVVeSinh")
+                                            {
+                                                NVVeSinh temp1 = this.lNhanvien.LNVVS.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                temp1.iThoiGianHopDong = temp;
+                                                temp1.dNgayGiaNhap = DateTime.Now;
+                                            }
+                                            else if (this.expired[x].sNghe == "NVBao")
+                                            {
+                                                NVBaoVe temp1 = this.lNhanvien.LNVBV.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                temp1.iThoiGianHopDong = temp;
+                                                temp1.dNgayGiaNhap = DateTime.Now;
+                                            }
+                                            this.expired.RemoveAt(x);
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+                            }
+                        case 2:
+                            {
+                                Console.Write("Ban muon kick nhan vien thu may: ");
+                                int x = int.Parse(Console.ReadLine());
+                                if (expired[x].sNghe != "CauThu")
+                                {
+                                    int temp = 0;
+                                    for (int i = 0; i < this.lNhanvien.LcaNhans.Count; i++)
+                                    {
+                                        if (this.lNhanvien.LcaNhans[i].sHoTen == expired[x].sHoTen)
+                                        {
+                                            temp = i;
+                                            break;
+                                        }
+                                    }
+                                    this.listNhanVien.xoa1NV(temp);
+                                    expired.RemoveAt(x);
+                                }
+                                else
+                                {
+                                    int temp = 0;
+                                    for (int i = 0; i < this.lCauThu.LDsCauThu.Count; i++)
+                                    {
+                                        if (this.lCauThu.LDsCauThu[i].sHoTen == expired[x].sHoTen)
+                                        {
+                                            temp = i;
+                                            break;
+                                        }
+                                    }
+                                    this.lCauThu.xoa1CT(temp);
+                                    expired.RemoveAt(x);
+                                }
+                                break;
+                            }
+                    }
+                    Console.Write("1_ De tiep tuc !! => Your choice: ");
+                    flag = int.Parse(Console.ReadLine());
+                }
+            }
+        }
+
         public void MenuQLCT()
         {
            
@@ -77,7 +226,8 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t***      6. Cau Thu co The Luc Tot Nhat          ***\t\t\t");
                 Console.WriteLine("\t\t\t***      7. Cau Thu co Suc Khoe Yeu Nhat         ***\t\t\t");
                 Console.WriteLine("\t\t\t***      8. Tong Luong Cau Thu                   ***\t\t\t");
-                Console.WriteLine("\t\t\t***      9. Thoat                                ***\t\t\t");
+                Console.WriteLine("\t\t\t***      9. Xoa Cau Thu                          ***\t\t\t");
+                Console.WriteLine("\t\t\t***     10. Thoat                                ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
                 Console.Write("Moi nhap lua chon cua ban => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -147,6 +297,21 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                         }
                     case 9:
                         {
+                            if (this.lCauThu.LDsCauThu.Count <= 0)
+                                Console.WriteLine("Vui long nhap it nhat mot cau thu !! ");
+                            else
+                            {
+                                this.lCauThu.xoaCT();
+                                Console.WriteLine("Danh sach cau thu sau khi xoa: ");
+                                foreach (var item in this.lCauThu.LDsCauThu)
+                                {
+                                    Console.WriteLine("Ten cau thu: " + item.sHoTen);
+                                }
+                            }                         
+                            break;
+                        }
+                    case 10:
+                        {
                             flag = 0;
                             break;
                         }
@@ -176,7 +341,8 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t***      8. Tong Luong Nhan Vien                 ***\t\t\t");
                 Console.WriteLine("\t\t\t***      9. Tim kiem nhan vien theo ten          ***\t\t\t");
                 Console.WriteLine("\t\t\t***     10. Xem Ca Nhan                          ***\t\t\t");
-                Console.WriteLine("\t\t\t***     11. Thoat                                ***\t\t\t");
+                Console.WriteLine("\t\t\t***     11. Xoa Nhan Vien                        ***\t\t\t");
+                Console.WriteLine("\t\t\t***     12. Thoat                                ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
                 Console.Write("Moi nhap lua chon cua ban => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -258,6 +424,20 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                         }
                     case 11:
                         {
+                            if (this.lNhanvien.LcaNhans.Count <= 0)
+                                Console.WriteLine("Vui long nhap it nhat mot nhan vien !!");
+                            else
+                            {
+                                this.lNhanvien.xoaNV();
+                                foreach (var item in this.lNhanvien.LcaNhans)
+                                {
+                                    Console.WriteLine("Ten nhan vien: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+                                }
+                            }                
+                            break;
+                        }
+                    case 12:
+                        {
                             flag = 0;
                             break;
                         }
@@ -282,7 +462,8 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t***      4. Huan Luyen The Luc Ca Doi            ***\t\t\t");
                 Console.WriteLine("\t\t\t***      5. Huan Luyen The Luc Cau Thu           ***\t\t\t");
                 Console.WriteLine("\t\t\t***      6. Da thu                               ***\t\t\t");
-                Console.WriteLine("\t\t\t***      7. Thoat                                ***\t\t\t");
+                Console.WriteLine("\t\t\t***      7. Thao tac hop dong                    ***\t\t\t");
+                Console.WriteLine("\t\t\t***      8. Thoat                                ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
                 Console.Write("Moi nhap lua chon cua ban => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -376,6 +557,11 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                             break;
                         }
                     case 7:
+                        {
+                            this.ThaoTacHopDong();
+                            break;
+                        }
+                    case 8:
                         {
                             flag = 0;
                             break;

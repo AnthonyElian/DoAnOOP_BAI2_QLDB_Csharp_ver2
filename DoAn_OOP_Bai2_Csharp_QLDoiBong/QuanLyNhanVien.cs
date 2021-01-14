@@ -278,31 +278,42 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             this.Xuat();
             Console.Write("Ban Muon Xem Nhan Vien thu may: !");
             int x = int.Parse(Console.ReadLine());
-            if(this.lcaNhans[x].sNghe == "bacsi")
+            this.lcaNhans[x].Xuat();
+        }
+
+        public void xoaNV()
+        {
+            Console.WriteLine("So luong nhan vien hien tai la: " + this.lcaNhans.Count);
+            Console.Write("Ban muon xoa bao nhieu NV: ");
+            int n = int.Parse(Console.ReadLine());
+            for (int i = 0; i < n; i++)
             {
-                BacSi temp = Lbacsi.Find(a => a.sHoTen == this.lcaNhans[x].sHoTen);
-                temp.Xuat();
-            }
-            else if (this.lcaNhans[x].sNghe == "HLVTL")
-            {
-                HLVTheLuc temp = LHLVTL.Find(a => a.sHoTen == this.lcaNhans[x].sHoTen);
-                temp.Xuat();
-            }
-            else if(this.lcaNhans[x].sNghe == "HLVCT")
-            {
-                HLVChienThuat temp = LHLVCT.Find(a => a.sHoTen == this.lcaNhans[x].sHoTen);
-                temp.Xuat();
-            }
-            else if(this.lcaNhans[x].sNghe == "NVBaoVe")
-            {
-                NVBaoVe temp = lNVBV.Find(a => a.sHoTen == this.LcaNhans[x].sHoTen);
-                temp.Xuat();
-            }
-            else if (this.lcaNhans[x].sNghe == "NVVeSinh")
-            {
-                NVVeSinh temp = this.lNVVS.Find(a => a.sHoTen == this.LcaNhans[x].sHoTen);
-                temp.Xuat();
+                Console.WriteLine("Danh sach nhan vien: ");
+                foreach (var item in this.lcaNhans)
+                {
+                    Console.WriteLine("Ho ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+                }
+                Console.Write("Nhap thu tu NV muon xoa: ");
+                int x = int.Parse(Console.ReadLine());
+                this.xoa1NV(x);
             }
         }
+        public void xoa1NV(int x)
+        {
+            CaNhan temp = this.lcaNhans[x];
+            if (temp.sNghe == "bacsi")
+                this.Lbacsi.RemoveAt(this.Lbacsi.FindIndex(item => (item.sHoTen == temp.sHoTen)));
+            if (temp.sNghe == "NVBaoVe")
+                this.lNVBV.RemoveAt(this.lNVBV.FindIndex(item => item.sHoTen == temp.sHoTen));
+            if (temp.sNghe == "NVVeSinh")
+                this.lNVVS.RemoveAt(this.lNVVS.FindIndex(item => item.sHoTen == temp.sHoTen));
+            if (temp.sNghe == "HLVCT")
+                this.LHLVCT.RemoveAt(this.lHLVCT.FindIndex(item => item.sHoTen == temp.sHoTen));
+            if (temp.sNghe == "HLVTL")
+                this.LHLVTL.RemoveAt(this.lHLVTL.FindIndex(item => item.sHoTen == temp.sHoTen));
+            this.lcaNhans.RemoveAt(x);
+        }
+
+
     }
 }

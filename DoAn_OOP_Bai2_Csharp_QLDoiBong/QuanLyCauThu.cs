@@ -272,5 +272,28 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             }
             return temp;
         }
+
+        public void xoaCT()
+        {
+            Console.WriteLine("So luong cau thu hien tai la: " + this.lDsCauThu.Count());
+            Console.Write("Ban muon xoa bao nhieu Cau thu: ");
+            int n = int.Parse(Console.ReadLine());
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Danh sach cau thu: ");
+                foreach (var item in this.lDsCauThu)
+                {
+                    Console.WriteLine("Ten Cau Thu: " + item.sHoTen);
+                }
+                Console.Write("Nhap thu tu Cau thu muon xoa: ");
+                int x = int.Parse(Console.ReadLine());
+                this.xoa1CT(x);
+            }
+        }
+
+        public void xoa1CT(int x)
+        {
+            this.lDsCauThu.RemoveAt(x);
+        }
     }
 }

@@ -61,6 +61,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         }
         public CauThu() : base()
         {
+            this.sNghe = "CauThu";
         }
         public override void Nhap()
         {
