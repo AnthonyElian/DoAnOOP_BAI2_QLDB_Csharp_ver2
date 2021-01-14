@@ -52,7 +52,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.WriteLine("Moi nhap thong tin HLV Chien Thuat ~~ ");
             base.Nhap();
 
-            Console.Write("Moi nhap han cua HLV //Hang: C_B_A_Pro : ");
+            Console.Write("Moi nhap hang cua HLV //Hang: C_B_A_Pro : ");
             this.sRank = Console.ReadLine();
 
             Console.Write("Moi nhap Quoc Gia cua HLV: ");
