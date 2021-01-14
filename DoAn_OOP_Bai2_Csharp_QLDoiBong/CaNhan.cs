@@ -198,7 +198,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             DateTime temp = new DateTime(this.iThoiGianHopDong+this.dNgayGiaNhap.Year, this.dNgayGiaNhap.Month, this.dNgayGiaNhap.Day);
             DateTime now = DateTime.Now;
             TimeSpan res = temp - now;
-            Console.WriteLine(res.TotalDays);
             return (int)res.TotalDays;
         }
     }

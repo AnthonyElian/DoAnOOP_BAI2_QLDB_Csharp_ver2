@@ -559,6 +559,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     case 7:
                         {
                             this.ThaoTacHopDong();
+                            this.expired.Clear();
                             break;
                         }
                     case 8:
