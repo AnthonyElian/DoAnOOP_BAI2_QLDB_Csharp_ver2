@@ -46,11 +46,12 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             this.iNamSinh = namsinh;
         }
 
-        public CaNhan(string hoten, double luongcoban, string cmnd)
+        public CaNhan(string hoten, double luongcoban, string cmnd, int namsinh)
         {
             this.sHoTen = hoten;
             this.dLuongCoBan = luongcoban;
             this.sCMND = cmnd;
+            this.iNamSinh = namsinh;
         }
         public abstract double TinhLuong();
         public virtual void Nhap()

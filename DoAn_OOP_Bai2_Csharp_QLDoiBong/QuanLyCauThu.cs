@@ -143,7 +143,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 case 4:
                 {
                     foreach (var item in LDsCauThu)
-                        if (item.ViTriDaChinh == "trungve")
+                        if (item.ViTriDaChinh == "tienve")
                             temp.Add(item);
                     break;
                 }

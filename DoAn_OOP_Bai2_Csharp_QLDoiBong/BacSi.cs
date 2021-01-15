@@ -38,9 +38,10 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             this.sNghe = "bacsi";
         }
 
-        public BacSi(string hoten, double luongcoban, string cmnd, string tentruong) : base(hoten, luongcoban, cmnd) 
+        public BacSi(string hoten, double luongcoban,int namsinh, string cmnd, string tentruong) : base(hoten, luongcoban, cmnd, namsinh) 
         {
             this.sTruongDaoTao = tentruong;
+            this.iNamSinh = namsinh;
             this.sNghe = "bacsi";
         }
 
@@ -57,13 +58,25 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         }
 
 
-        public void Kham(ref int a)
+        public void Kham(ref CauThu ct)
         {
-            
-            Console.Write("Moi nhap Tinh Trang Cau Thu: ");
-            a = int.Parse(Console.ReadLine());
-            if (a < 50)
+            Console.Write("Moi nhap Tinh Trang suc khoe Cau Thu: ");
+            ct.TinhTrangSucKhoe = int.Parse(Console.ReadLine());
+            if (ct.TinhTrangSucKhoe < 50)
+            {
                 Console.WriteLine("Cau thu bi chan thuong !!");
+                Console.Write("1_chua tri || 2_khong chua => Your choice: ");
+                int temp = int.Parse(Console.ReadLine());
+                if (temp == 1)
+                {
+                    int a = ct.TinhTrangSucKhoe;
+                    this.ChuaBenh(ref a);
+                    ct.TinhTrangSucKhoe = a;
+                    Console.WriteLine("Cau thu da duoc chua tri !! ");
+                }
+                else
+                    Console.WriteLine("Cau thu dang chan thuong dau lam ne !! ");
+            }     
             else
                 Console.WriteLine("Cau thu dang o tinh trang the luc tot !!");
         }

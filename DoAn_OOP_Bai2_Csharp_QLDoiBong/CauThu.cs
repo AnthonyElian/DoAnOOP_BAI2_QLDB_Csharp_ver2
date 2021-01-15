@@ -55,9 +55,13 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             this.sChanThuan = chanthuan;
             this.sViTriDaChinh = vitridachinh;
         }
-        public CauThu(string hoten, double luongcoban, string cmnd, int soao) : base(hoten, luongcoban, cmnd)
+        public CauThu(string hoten, double luongcoban, string cmnd, int namsinh, int soao, int tinhtrangsuckhoe, int tinhtrangtheluc, string chanthuan, string vitridachinh) : base(hoten, luongcoban, cmnd, namsinh)
         {
             this.iSoAo = soao;
+            this.iTinhTrangSucKhoe = tinhtrangsuckhoe;
+            this.iTinhTrangTheLuc = tinhtrangtheluc;
+            this.sChanThuan = chanthuan;
+            this.sViTriDaChinh = vitridachinh;
         }
         public CauThu() : base()
         {
@@ -91,7 +95,6 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             Console.WriteLine("Thong Tin Cau Thu ~~ ");
             base.Xuat();
 
-            Console.WriteLine("Tuoi cua Cau Thu la: " + this.TinhTuoi());
             Console.WriteLine("So Ao co dinh cua Cau Thu la: " + this.iSoAo);
             Console.WriteLine("Chan Thuan cua Cau Thu la: " + this.sChanThuan);
             Console.WriteLine("Vi tri Da Chinh trong doi hinh la: " + this.sViTriDaChinh);

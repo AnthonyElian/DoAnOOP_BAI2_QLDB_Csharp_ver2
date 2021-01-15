@@ -19,10 +19,12 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             {
                 Console.WriteLine("\t\t\t************************MENU************************\t\t\t");
                 Console.WriteLine("\t\t\t***            1. Quan Ly Cau Thu                ***\t\t\t");
-                Console.WriteLine("\t\t\t***            2. Quan Ly Nhan Vien              ***\t\t\t");
-                Console.WriteLine("\t\t\t***            3. Quan Ly San                    ***\t\t\t");
-                Console.WriteLine("\t\t\t***            4. Hoat Dong                      ***\t\t\t");
-                Console.WriteLine("\t\t\t***            5. Thoat                          ***\t\t\t");
+                Console.WriteLine("\t\t\t***            2. Xuat ds Cau Thu hien co        ***\t\t\t");
+                Console.WriteLine("\t\t\t***            3. Quan Ly Nhan Vien              ***\t\t\t");
+                Console.WriteLine("\t\t\t***            4. Xuat ds Nhan Vien hien co      ***\t\t\t");
+                Console.WriteLine("\t\t\t***            5. Quan Ly San                    ***\t\t\t");
+                Console.WriteLine("\t\t\t***            6. Hoat Dong                      ***\t\t\t");
+                Console.WriteLine("\t\t\t***            7. Thoat                          ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
                 Console.Write("Moi nhap lua chon cua ba => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -36,11 +38,43 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                         }
                     case 2:
                         {
+                            int i = 0;
+                            if (a.listCauThu.LDsCauThu.Count != 0)
+                            {
+                                foreach (var item in a.listCauThu.LDsCauThu)
+                                {
+                                    Console.WriteLine("STT: " + i++ + " Ho ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("chua nhap thong tin cau thu nao !!");
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
                             a.MenuQLNV();
                             co4 = 1;
                             break;
                         }
-                    case 3:
+                    case 4:
+                        {
+                            int i = 0;
+                            if (a.listNhanVien.LcaNhans.Count !=0)
+                            {
+                                foreach (var item in a.listNhanVien.LcaNhans)
+                                {
+                                    Console.WriteLine("STT: " + i++ + " Ho ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("chua nhap thong tin nhan vien nao !!");
+                            }
+                            break;
+                        }
+                    case 5:
                         {
                             if (co == 1)
                             {
@@ -69,12 +103,12 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                             }
                             break;
                         }
-                    case 4:
+                    case 6:
                         {
                             a.MenuHoatDong();
                             break; 
                         }
-                    case 5:
+                    case 7:
                         {
                             flag = 0;
                             break;

@@ -36,8 +36,9 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             this.sMauDongPhuc = color;
         }
 
-        public NVBaoVe(string hoten, double luongcoban, string cmnd, int time) : base(hoten, luongcoban, cmnd) 
+        public NVBaoVe(string hoten, double luongcoban, int namsinh, string cmnd, int time) : base(hoten, luongcoban, cmnd, namsinh) 
         {
+            this.iNamSinh = namsinh;
             this.iThoiGianLamTrongNgay = time;
         }
 

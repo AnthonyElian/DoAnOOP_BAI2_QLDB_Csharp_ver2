@@ -34,8 +34,9 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             this.sNoiSinh = noisinh;
         }
 
-        public HLVTheLuc(string hoten, double luongcoban, int NangCaoTL, string cmnd, string noisinh) : base(hoten, luongcoban, cmnd)
+        public HLVTheLuc(string hoten, double luongcoban, int namsinh, int NangCaoTL, string cmnd, string noisinh) : base(hoten, luongcoban, cmnd, namsinh)
         {
+            this.iNamSinh = namsinh;
             this.ChiSoNangCaoTL = NangCaoTL;
             this.sNoiSinh = noisinh;
         }

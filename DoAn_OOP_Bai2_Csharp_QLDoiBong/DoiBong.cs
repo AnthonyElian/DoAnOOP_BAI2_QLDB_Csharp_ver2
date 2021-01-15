@@ -453,6 +453,8 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
         public void MenuHoatDong()
         {
             int flag = 1;
+            List<CauThu> tmp = new List<CauThu>();
+            HoatDong.createCauThu(ref tmp);
             while (flag == 1)
             {
                 Console.WriteLine("\t\t\t************************MENU************************\t\t\t");
@@ -463,7 +465,8 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t***      5. Huan Luyen The Luc Cau Thu           ***\t\t\t");
                 Console.WriteLine("\t\t\t***      6. Da thu                               ***\t\t\t");
                 Console.WriteLine("\t\t\t***      7. Thao tac hop dong                    ***\t\t\t");
-                Console.WriteLine("\t\t\t***      8. Thoat                                ***\t\t\t");
+                Console.WriteLine("\t\t\t***      8. Chuyen nhuong                        ***\t\t\t");
+                Console.WriteLine("\t\t\t***      9. Thoat                                ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
                 Console.Write("Moi nhap lua chon cua ban => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -563,6 +566,11 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                             break;
                         }
                     case 8:
+                        {
+                            HoatDong.ChuyenNhuong(ref this.lCauThu, ref tmp);
+                            break;
+                        }
+                    case 9:
                         {
                             flag = 0;
                             break;
