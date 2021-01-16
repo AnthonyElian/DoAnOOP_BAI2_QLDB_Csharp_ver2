@@ -94,118 +94,125 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 int flag = 1;
                 while (flag == 1)
                 {
-                    int dem = 0;
-                    Console.WriteLine("Danh sach het han hop dong la: ");
-                    foreach (var item in expired)
+                    if (this.expired.Count == 0)
                     {
-                        Console.WriteLine("STT: " + dem++ + "Ho ten: " + item.sHoTen + " Luong: " + item.TinhLuong());
+                        flag = 0;
                     }
-                    Console.Write("1_Gia Han || 2_Kick => Your choice: ");
-                    int n = int.Parse(Console.ReadLine());
-                    switch(n)
+                    else
                     {
-                        case 1:
-                            {
-                                Console.Write("Ban muon gia han nhan vien thu may: ");
-                                int x = int.Parse(Console.ReadLine());
-                                if (this.expired[x].sNghe == "CauThu")
+                        int dem = 0;
+                        Console.WriteLine("Danh sach het han hop dong la: ");
+                        foreach (var item in expired)
+                        {
+                            Console.WriteLine("STT: " + dem++ + "Ho ten: " + item.sHoTen + " Luong: " + item.TinhLuong());
+                        }
+                        Console.Write("1_Gia Han || 2_Kick => Your choice: ");
+                        int n = int.Parse(Console.ReadLine());
+                        switch (n)
+                        {
+                            case 1:
                                 {
-                                    for (int i = 0; i < this.lCauThu.LDsCauThu.Count; i++)
+                                    Console.Write("Ban muon gia han nhan vien thu may: ");
+                                    int x = int.Parse(Console.ReadLine());
+                                    if (this.expired[x].sNghe == "CauThu")
                                     {
-                                        if (this.lCauThu.LDsCauThu[i].sHoTen == this.expired[x].sHoTen)
+                                        for (int i = 0; i < this.lCauThu.LDsCauThu.Count; i++)
                                         {
-                                            Console.Write("Gia han hop dong bao nhieu nam?: ");
-                                            this.lCauThu.LDsCauThu[i].iThoiGianHopDong = int.Parse(Console.ReadLine());
-                                            this.lCauThu.LDsCauThu[i].dNgayGiaNhap = DateTime.Now;
-                                            this.expired.RemoveAt(x);
-                                            break;
+                                            if (this.lCauThu.LDsCauThu[i].sHoTen == this.expired[x].sHoTen)
+                                            {
+                                                Console.Write("Gia han hop dong bao nhieu nam?: ");
+                                                this.lCauThu.LDsCauThu[i].iThoiGianHopDong = int.Parse(Console.ReadLine());
+                                                this.lCauThu.LDsCauThu[i].dNgayGiaNhap = DateTime.Now;
+                                                this.expired.RemoveAt(x);
+                                                break;
+                                            }
                                         }
                                     }
-                                }
-                                else
-                                {
-                                    for (int i = 0; i < this.lNhanvien.LcaNhans.Count; i++)
+                                    else
                                     {
-                                        if (this.lNhanvien.LcaNhans[i].sHoTen == this.expired[x].sHoTen)
+                                        for (int i = 0; i < this.lNhanvien.LcaNhans.Count; i++)
                                         {
-                                            Console.Write("Gia han hop dong bao nhieu nam?: ");
-                                            int temp = int.Parse(Console.ReadLine());
-                                            this.lNhanvien.LcaNhans[i].iThoiGianHopDong = temp;
-                                            this.lNhanvien.LcaNhans[i].dNgayGiaNhap = DateTime.Now;
-                                            if (this.expired[x].sNghe == "bacsi")
+                                            if (this.lNhanvien.LcaNhans[i].sHoTen == this.expired[x].sHoTen)
                                             {
-                                                BacSi temp1 = this.lNhanvien.Lbacsi.Find(a => a.sHoTen == this.expired[x].sHoTen);
-                                                temp1.iThoiGianHopDong = temp;
-                                                temp1.dNgayGiaNhap = DateTime.Now;
+                                                Console.Write("Gia han hop dong bao nhieu nam?: ");
+                                                int temp = int.Parse(Console.ReadLine());
+                                                this.lNhanvien.LcaNhans[i].iThoiGianHopDong = temp;
+                                                this.lNhanvien.LcaNhans[i].dNgayGiaNhap = DateTime.Now;
+                                                if (this.expired[x].sNghe == "bacsi")
+                                                {
+                                                    BacSi temp1 = this.lNhanvien.Lbacsi.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                    temp1.iThoiGianHopDong = temp;
+                                                    temp1.dNgayGiaNhap = DateTime.Now;
+                                                }
+                                                else if (this.expired[x].sNghe == "HLVCT")
+                                                {
+                                                    HLVChienThuat temp1 = this.lNhanvien.LHLVCT.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                    temp1.iThoiGianHopDong = temp;
+                                                    temp1.dNgayGiaNhap = DateTime.Now;
+                                                }
+                                                else if (this.expired[x].sNghe == "HLVTL")
+                                                {
+                                                    HLVTheLuc temp1 = this.lNhanvien.LHLVTL.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                    temp1.iThoiGianHopDong = temp;
+                                                    temp1.dNgayGiaNhap = DateTime.Now;
+                                                }
+                                                else if (this.expired[x].sNghe == "NVVeSinh")
+                                                {
+                                                    NVVeSinh temp1 = this.lNhanvien.LNVVS.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                    temp1.iThoiGianHopDong = temp;
+                                                    temp1.dNgayGiaNhap = DateTime.Now;
+                                                }
+                                                else if (this.expired[x].sNghe == "NVBaoVe")
+                                                {
+                                                    NVBaoVe temp1 = this.lNhanvien.LNVBV.Find(a => a.sHoTen == this.expired[x].sHoTen);
+                                                    temp1.iThoiGianHopDong = temp;
+                                                    temp1.dNgayGiaNhap = DateTime.Now;
+                                                }
+                                                this.expired.RemoveAt(x);
+                                                break;
                                             }
-                                            else if (this.expired[x].sNghe == "HLVCT")
-                                            {
-                                                HLVChienThuat temp1 = this.lNhanvien.LHLVCT.Find(a => a.sHoTen == this.expired[x].sHoTen);
-                                                temp1.iThoiGianHopDong = temp;
-                                                temp1.dNgayGiaNhap = DateTime.Now;
-                                            }
-                                            else if (this.expired[x].sNghe == "HLVTL")
-                                            {
-                                                HLVTheLuc temp1 = this.lNhanvien.LHLVTL.Find(a => a.sHoTen == this.expired[x].sHoTen);
-                                                temp1.iThoiGianHopDong = temp;
-                                                temp1.dNgayGiaNhap = DateTime.Now;
-                                            }
-                                            else if (this.expired[x].sNghe == "NVVeSinh")
-                                            {
-                                                NVVeSinh temp1 = this.lNhanvien.LNVVS.Find(a => a.sHoTen == this.expired[x].sHoTen);
-                                                temp1.iThoiGianHopDong = temp;
-                                                temp1.dNgayGiaNhap = DateTime.Now;
-                                            }
-                                            else if (this.expired[x].sNghe == "NVBaoVe")
-                                            {
-                                                NVBaoVe temp1 = this.lNhanvien.LNVBV.Find(a => a.sHoTen == this.expired[x].sHoTen);
-                                                temp1.iThoiGianHopDong = temp;
-                                                temp1.dNgayGiaNhap = DateTime.Now;
-                                            }
-                                            this.expired.RemoveAt(x);
-                                            break;
                                         }
                                     }
+                                    break;
                                 }
-                                break;
-                            }
-                        case 2:
-                            {
-                                Console.Write("Ban muon kick nhan vien thu may: ");
-                                int x = int.Parse(Console.ReadLine());
-                                if (expired[x].sNghe != "CauThu")
+                            case 2:
                                 {
-                                    int temp = 0;
-                                    for (int i = 0; i < this.lNhanvien.LcaNhans.Count; i++)
+                                    Console.Write("Ban muon kick nhan vien thu may: ");
+                                    int x = int.Parse(Console.ReadLine());
+                                    if (expired[x].sNghe != "CauThu")
                                     {
-                                        if (this.lNhanvien.LcaNhans[i].sHoTen == expired[x].sHoTen)
+                                        int temp = 0;
+                                        for (int i = 0; i < this.lNhanvien.LcaNhans.Count; i++)
                                         {
-                                            temp = i;
-                                            break;
+                                            if (this.lNhanvien.LcaNhans[i].sHoTen == expired[x].sHoTen)
+                                            {
+                                                temp = i;
+                                                break;
+                                            }
                                         }
+                                        this.listNhanVien.xoa1NV(temp);
+                                        expired.RemoveAt(x);
                                     }
-                                    this.listNhanVien.xoa1NV(temp);
-                                    expired.RemoveAt(x);
-                                }
-                                else
-                                {
-                                    int temp = 0;
-                                    for (int i = 0; i < this.lCauThu.LDsCauThu.Count; i++)
+                                    else
                                     {
-                                        if (this.lCauThu.LDsCauThu[i].sHoTen == expired[x].sHoTen)
+                                        int temp = 0;
+                                        for (int i = 0; i < this.lCauThu.LDsCauThu.Count; i++)
                                         {
-                                            temp = i;
-                                            break;
+                                            if (this.lCauThu.LDsCauThu[i].sHoTen == expired[x].sHoTen)
+                                            {
+                                                temp = i;
+                                                break;
+                                            }
                                         }
+                                        this.lCauThu.xoa1CT(temp);
+                                        expired.RemoveAt(x);
                                     }
-                                    this.lCauThu.xoa1CT(temp);
-                                    expired.RemoveAt(x);
+                                    break;
                                 }
-                                break;
-                            }
+                        }
+                        Console.Write("1_ De tiep tuc !! => Your choice: ");
+                        flag = int.Parse(Console.ReadLine());
                     }
-                    Console.Write("1_ De tiep tuc !! => Your choice: ");
-                    flag = int.Parse(Console.ReadLine());
                 }
             }
         }
