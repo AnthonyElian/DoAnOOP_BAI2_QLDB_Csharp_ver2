@@ -104,20 +104,68 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
         static public void createCauThu(ref List<CauThu> chuyennhuong)
         {
-            CauThu a = new CauThu("nguyen van a", 30000000, "56893457", 1998, 1, 56, 72, "trai", "tienve");
-            CauThu b = new CauThu("nguyen van b", 20000000, "56630787", 2000, 90, 88, 12, "phai", "hauve");
-            CauThu c = new CauThu("nguyen van c", 67000000, "99637457", 1995, 57, 26, 82, "trai", "tiendao");
-            CauThu d = new CauThu("nguyen van d", 100000000, "63019457", 1998, 420, 100, 100, "phai", "tiendao");
-            CauThu e = new CauThu("nguyen van e", 12000000, "56891234", 2005, 1, 36, 22, "phai", "tiendao");
-            CauThu f = new CauThu("nguyen van f", 10000000, "12343457", 2004, 1, 46, 52, "phai", "tienve");
-            //List<CauThu> chuyennhuong = new List<CauThu>();
-            chuyennhuong.Add(a);chuyennhuong.Add(b);chuyennhuong.Add(c);chuyennhuong.Add(d);chuyennhuong.Add(e);chuyennhuong.Add(f);
-            //return chuyennhuong;
+            Random rd = new Random();
+            int soLuong = rd.Next(minValue: 5, maxValue: 11);
+            for (int i = 0; i < soLuong; i++)
+            {
+                CauThu a = new CauThu();
+                int aphlab = rd.Next(minValue: 65, maxValue: 123);
+                a.sHoTen = "Nguyen Van " + ((char)aphlab).ToString();
+                int luongcoban = rd.Next(minValue: 1000000, maxValue: 1000000000);
+                a.dLuongCoBan = luongcoban;
+                int cmnd = rd.Next(minValue: 10000000, maxValue: 100000000);
+                a.sCMND = Convert.ToString(cmnd);
+                int namsinh = rd.Next(minValue: 1890, maxValue: 2009);
+                a.iNamSinh = namsinh;
+                int soao = rd.Next(minValue: 1, maxValue: 101);
+                a.SoAo = soao;
+                int theluc = rd.Next(minValue: 10, maxValue: 101);
+                a.TinhTrangTheLuc = theluc;
+                int suckhoe = rd.Next(minValue: 10, maxValue: 101);
+                a.TinhTrangSucKhoe = suckhoe;
+                int chanthuan = rd.Next(minValue: 1, maxValue: 3);
+                if (chanthuan == 1)
+                    a.ChanThuan = "trai";
+                else
+                    a.ChanThuan = "phai";
+                int vitridachinh = rd.Next(minValue: 1, maxValue: 4);
+                if (vitridachinh == 1)
+                {
+                    a.ViTriDaChinh = "tiendao";
+                }
+                else if (vitridachinh == 2)
+                {
+                    a.ViTriDaChinh = "tienve";
+                }
+                else
+                    a.ViTriDaChinh = "hauve";
+                chuyennhuong.Add(a);
+            }
         }
 
         static public void ChuyenNhuong(ref QuanLyCauThu ct, ref List<CauThu> temp)
         {
-            Console.WriteLine("Da den ki chuyen nhuong mua Dong, ban co muon mua them hay ban di cau thu ko? 1_Yes || 2_No");
+            Random rd = new Random();
+            int key = rd.Next(minValue: 1, maxValue: 5);
+            string tmp = "";
+            if (key == 1)
+            {
+                tmp = "Xuan";
+            }
+            else if (key == 2)
+            {
+                tmp = "Ha";
+            }
+            else if (key == 3)
+            {
+                tmp = "Thu";
+            }
+            else if (key == 4)
+            {
+                tmp = "Dong";
+            }
+
+            Console.WriteLine("Da den ki chuyen nhuong mua " + tmp + ", ban co muon mua them hay ban di cau thu ko? 1_Yes || 2_No");
             Console.Write("=> Your choice: "); int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {
