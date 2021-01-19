@@ -457,7 +457,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             }
         }
 
-        public void MenuHoatDong()
+        public void MenuHoatDong(San san)
         {
             int flag = 1;
             List<CauThu> tmp = new List<CauThu>();
@@ -563,7 +563,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                                 break;
                             }
                             HLVChienThuat hlv = this.listNhanVien.chonHLVCT();
-                            HoatDong.DaGiaoLuu(this.listCauThu.LDsCauThu, hlv);
+                            HoatDong.DaGiaoLuu(this.listCauThu.LDsCauThu, hlv, san);
                             break;
                         }
                     case 7:

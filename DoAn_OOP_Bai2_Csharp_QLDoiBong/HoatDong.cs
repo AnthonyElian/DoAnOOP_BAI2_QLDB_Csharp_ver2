@@ -81,17 +81,55 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 
             CT.TinhTrangTheLuc += HLV.ChiSoNangCaoTL;
         }
-        static public void DaGiaoLuu(List<CauThu> listCT, HLVChienThuat HLV)
+        static public void DaGiaoLuu(List<CauThu> listCT, HLVChienThuat HLV, San san)
         {
 
             Console.WriteLine("Chon cau thu tham gia thi dau");
-            List<CauThu> listCT2=HoatDong.TuyenChon11CT(listCT);
+            List<CauThu> listCT2 = HoatDong.TuyenChon11CT(listCT);
             Console.WriteLine("Chon chien thuat");
-            string chienthuat =HLV.ChonChienThuat();
+            string chienthuat = HLV.ChonChienThuat();
             Console.Write("Nhap doi thu: ");
             string dt = Console.ReadLine();
+            Console.Write("Ban muon da tren san nha:1 hay san khach:2 => Your choice: ");
+            int key = int.Parse(Console.ReadLine()); int flag;
+            string tensan = "";
+            if (key == 1)
+            {
+                if (san != null)
+                {
+                    flag = 1;
+                }
+                else
+                {
+                    flag = 2;
+                    Console.Write("Doi tuyen khong co san, Moi nhap ten san khach: "); tensan = Console.ReadLine();
+                }
+            }
+            else
+            {
+                flag = 2;
+                Console.Write("Moi nhap ten san khach: ");tensan = Console.ReadLine();
+            }
+            int soLuong = 0;
+            if (flag == 1)
+            {
+                do
+                {
+                    Console.Write("Moi nhap so luong khan gia da mua ve: ");
+                    soLuong = int.Parse(Console.ReadLine());
+
+                } while (san.ISoLuongKhanGia < soLuong);
+            }
             Console.WriteLine("\t\t\t************************************************\t\t\t");
             Console.WriteLine("Doi nha VS " + dt);
+            if (flag == 1)
+            {
+                Console.WriteLine("Cuoc so tai duoc dien ra tren san van dong: " + san.STenSan);
+            }
+            else
+            {
+                Console.WriteLine("Cuoc so tai duoc dien ra tren san van dong: " + tensan);
+            }
             Console.WriteLine("Danh sach cau thu tham du!");
             foreach (var item in listCT2)
             {
@@ -99,7 +137,42 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             }
             Console.Write("Huan luyen vien: "+HLV.sHoTen);
             Console.Write(" + Chien thuat: " + chienthuat);
-            Console.WriteLine("\n\t\t\t************************************************\t\t\t\n");
+            Console.WriteLine("\n\t\t\t************************************************\t\t\t");
+            Console.Write("1_Thang || 2_Thua => Your choice: ");
+            int temp = int.Parse(Console.ReadLine());
+            if (temp == 1)
+            {
+                for (int i=0;i<listCT2.Count;i++)
+                {
+                    for (int j=0;j<listCT.Count;j++)
+                    {
+                        if (listCT2[i].sHoTen == listCT[j].sHoTen)
+                        {
+                            listCT[j].dLuongCoBan = listCT[j].dLuongCoBan + 500000;
+                            listCT[j].TinhTrangSucKhoe = listCT[j].TinhTrangSucKhoe - 2;
+                            listCT[j].TinhTrangTheLuc = listCT[j].TinhTrangTheLuc - 3;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < listCT2.Count; i++)
+                {
+                    for (int j = 0; j < listCT.Count; j++)
+                    {
+                        if (listCT2[i].sHoTen == listCT[j].sHoTen)
+                        {
+                            listCT[j].TinhTrangSucKhoe = listCT[j].TinhTrangSucKhoe - 5;
+                            listCT[j].TinhTrangTheLuc = listCT[j].TinhTrangTheLuc - 7;
+                        }
+                    }
+                }
+            }
+            if (flag == 1)
+            {
+                Console.WriteLine("Thu nhap cua san bong la: " + san.IGiaVe * soLuong);
+            }
         }
 
         static public void createCauThu(ref List<CauThu> chuyennhuong)

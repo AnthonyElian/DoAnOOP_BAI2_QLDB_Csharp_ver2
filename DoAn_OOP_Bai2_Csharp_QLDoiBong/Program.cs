@@ -101,11 +101,17 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                                 else 
                                     Console.WriteLine("Doi bong khong co San!! ");
                             }
+                            co3 = 1;
                             break;
                         }
                     case 6:
                         {
-                            a.MenuHoatDong();
+                            if (co3 == 0)
+                            {
+                                Console.WriteLine("Warning: chuc nang nay co su dung du lieu cua San de nghi nhap thong tin cua San truoc!!");
+                            }
+                            else
+                                a.MenuHoatDong(san);
                             break; 
                         }
                     case 7:
