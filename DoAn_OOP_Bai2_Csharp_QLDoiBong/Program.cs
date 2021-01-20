@@ -24,9 +24,10 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                 Console.WriteLine("\t\t\t***            4. Xuat ds Nhan Vien hien co      ***\t\t\t");
                 Console.WriteLine("\t\t\t***            5. Quan Ly San                    ***\t\t\t");
                 Console.WriteLine("\t\t\t***            6. Hoat Dong                      ***\t\t\t");
-                Console.WriteLine("\t\t\t***            7. Thoat                          ***\t\t\t");
+                Console.WriteLine("\t\t\t***            7. Xuat toan thanh vien trong doi ***\t\t\t");
+                Console.WriteLine("\t\t\t***            8. Thoat                          ***\t\t\t");
                 Console.WriteLine("\t\t\t****************************************************\t\t\t");
-                Console.Write("Moi nhap lua chon cua ba => Your choice: ");
+                Console.Write("Moi nhap lua chon cua ban => Your choice: ");
                 int choice = int.Parse(Console.ReadLine());
                 switch (choice)
                 {
@@ -115,6 +116,16 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                             break; 
                         }
                     case 7:
+                        {
+                            int i = 0;
+                            var result = a.listCauThu.LDsCauThu.Union(a.listNhanVien.LcaNhans);
+                            foreach (var item in result)
+                            {
+                                Console.WriteLine("STT: " + i++ + " Ho ten: " + item.sHoTen + " Chuc vu: " + item.sNghe);
+                            }
+                            break;
+                        }
+                    case 8:
                         {
                             flag = 0;
                             break;
