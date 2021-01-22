@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using xNet;
 
 namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
 {
@@ -13,6 +16,17 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
             int flag = 1;
             DoiBong a = new DoiBong();
             a.Nhap();
+            Console.Write("1_ Mo web || 2_ bo qua => Your choice: ");
+            int n = int.Parse(Console.ReadLine());
+            if (n == 1)
+            {
+                Console.Write("Moi nhap link doi bong: ");
+                string key = Console.ReadLine();
+                HttpRequest http = new HttpRequest();
+                string html = http.Get(key).ToString();
+                File.WriteAllText("test.html", html);
+                Process.Start("test.html");
+            }
             San san = new San();
             int co = 1, co2 = 1, co3 = 0, co4 = 0;
             while (flag == 1)
@@ -62,7 +76,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                     case 4:
                         {
                             int i = 0;
-                            if (a.listNhanVien.LcaNhans.Count !=0)
+                            if (a.listNhanVien.LcaNhans.Count != 0)
                             {
                                 foreach (var item in a.listNhanVien.LcaNhans)
                                 {
@@ -99,7 +113,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                             {
                                 if (co2 == 1)
                                     san.Xuat();
-                                else 
+                                else
                                     Console.WriteLine("Doi bong khong co San!! ");
                             }
                             co3 = 1;
@@ -113,7 +127,7 @@ namespace DoAn_OOP_Bai2_Csharp_QLDoiBong
                             }
                             else
                                 a.MenuHoatDong(san);
-                            break; 
+                            break;
                         }
                     case 7:
                         {
